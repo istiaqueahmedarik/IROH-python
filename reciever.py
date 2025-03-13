@@ -10,6 +10,7 @@ from iroh import Iroh, MessageType, GossipMessageCallback
 # Global variable to store node ID
 node_id = None
 sender_node_id = None
+last_recieved_message = None
 app = Flask(__name__)
 
 
@@ -25,6 +26,12 @@ def post_node_id():
     global sender_node_id
     sender_node_id = request.json["node_id"]
     return jsonify({"node_id": sender_node_id})
+
+
+@app.route('/last_message', methods=['GET'])
+def get_last_message():
+    global last_recieved_message
+    return jsonify({"last_message": last_recieved_message})
 
 
 class Callback(GossipMessageCallback):

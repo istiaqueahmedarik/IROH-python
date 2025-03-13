@@ -39,11 +39,11 @@ async def goss_f():
         receiver_ip = receiver_node_id
         try:
             print(
-                f"Fetching node ID from http://{receiver_ip}:5000/get_node_id")
+                f"Fetching node ID from {receiver_ip}/get_node_id")
             # response = requests.get(f"http://{receiver_ip}:5000/get_node_id")
             payload = {"node_id": n0_id}
             response = requests.post(
-                f"http://{receiver_ip}:5000/get_node_id", json=payload)
+                f"{receiver_ip}/get_node_id", json=payload)
             receiver_node_id = response.json()["node_id"]
             print(f"Received node ID: {receiver_node_id}")
         except Exception as e:
