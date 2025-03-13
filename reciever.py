@@ -60,8 +60,8 @@ async def goss_f():
 
     print("subscribe n1")
     global sender_node_id
-    sender_node_id = input(
-        "Enter sender node id (or just press Enter if using the REST API): ")
+    # sender_node_id = input(
+    #     "Enter sender node id (or just press Enter if using the REST API): ")
     while (sender_node_id.strip() == ""):
         print("Waiting for sender to connect via REST API...")
         time.sleep(1)
