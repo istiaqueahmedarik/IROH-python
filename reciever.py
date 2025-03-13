@@ -84,6 +84,8 @@ async def goss_f():
                 msg = event.as_received()
                 print("Received message")
                 print(msg.content.decode('utf-8'))
+                global last_recieved_message
+                last_recieved_message = msg.content.decode('utf-8')
         except Exception as e:
             print(e)
             break
